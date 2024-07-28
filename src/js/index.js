@@ -1,6 +1,7 @@
 import Search from "./model/search";
 import Base, { elements, renderLoader, clearLoader } from "./view/base";
 import * as searchView from  "./view/searchView";
+import Recipe from "./model/Recipe";
 // let search = new Search('pasta');
 
 // search.doSearch().then(r => console.log(r));
@@ -49,3 +50,19 @@ elements.searchForm.addEventListener('submit', e => {
     e.preventDefault(); //default uil ajillagaag ni boliul
     controlSearch();
 });
+
+//
+elements.PageButtons.addEventListener("click", e => {
+    const btn = e.target.closest(".btn-inline");
+if (btn){
+    // html deerh data-goto -ees gotoPageNumber utgiig avna
+    const gotoPageNumber = parseInt(btn.dataset.goto);
+    //tovch daragdsan bval hailtiin ur dung tseverlene.
+    searchView.clearSearchResult();
+    searchView.renderRecipes(state.search.result,gotoPageNumber);
+}
+
+});
+
+const r = new Recipe(47746);
+r.getRecipe();
