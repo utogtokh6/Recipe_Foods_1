@@ -16,4 +16,13 @@ export default class Recipe {
 
    }
 
+   calcTime(){
+    //Nairlaga burt oiroltsoogoor 5 minut zartsuulna gej uzeye
+    this.time = this.ingredients.length *5;
+   }
+
+   calcHuniiToo(){
+    this.huniiToo = 4;
+   }
+
 }
